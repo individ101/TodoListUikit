@@ -12,7 +12,6 @@
 		9D2DC7CB2DA7C529007FD4CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC7BB2DA7C529007FD4CB /* AppDelegate.swift */; };
 		9D2DC7CC2DA7C529007FD4CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC7C22DA7C529007FD4CB /* SceneDelegate.swift */; };
 		9D2DC7CE2DA7C529007FD4CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC7C42DA7C529007FD4CB /* ViewController.swift */; };
-		9D2DC7D22DA7CF30007FD4CB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC7D12DA7CF30007FD4CB /* CoreDataManager.swift */; };
 		9D2DC7D52DA7D83D007FD4CB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC7D42DA7D83D007FD4CB /* NetworkManager.swift */; };
 		9D2DC8222DA80830007FD4CB /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC8202DA80830007FD4CB /* CoreDataModel.xcdatamodeld */; };
 		9D2DC8252DA8087B007FD4CB /* TodoList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC8232DA8087B007FD4CB /* TodoList+CoreDataClass.swift */; };
@@ -28,7 +27,6 @@
 		9D2DC7BE2DA7C529007FD4CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D2DC7C22DA7C529007FD4CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9D2DC7C42DA7C529007FD4CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9D2DC7D12DA7CF30007FD4CB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		9D2DC7D42DA7D83D007FD4CB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9D2DC8212DA80830007FD4CB /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		9D2DC8232DA8087B007FD4CB /* TodoList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoList+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -50,8 +48,6 @@
 		9D2DC7962DA7C157007FD4CB = {
 			isa = PBXGroup;
 			children = (
-				9D2DC8232DA8087B007FD4CB /* TodoList+CoreDataClass.swift */,
-				9D2DC8242DA8087B007FD4CB /* TodoList+CoreDataProperties.swift */,
 				9D2DC7C52DA7C529007FD4CB /* TodoListWork */,
 				9D2DC7A02DA7C157007FD4CB /* Products */,
 			);
@@ -68,12 +64,12 @@
 		9D2DC7C52DA7C529007FD4CB /* TodoListWork */ = {
 			isa = PBXGroup;
 			children = (
-				9D2DC7D32DA7D574007FD4CB /* NetworkManager */,
-				9D2DC7D02DA7CF10007FD4CB /* CoreDataManager */,
 				9D2DC7BB2DA7C529007FD4CB /* AppDelegate.swift */,
 				9D2DC7C22DA7C529007FD4CB /* SceneDelegate.swift */,
 				9D2DC7C42DA7C529007FD4CB /* ViewController.swift */,
 				9D2DC7BD2DA7C529007FD4CB /* Info.plist */,
+				9D2DC7D32DA7D574007FD4CB /* NetworkManager */,
+				9D2DC7D02DA7CF10007FD4CB /* CoreDataManager */,
 				9D2DC7CF2DA7C532007FD4CB /* Resource */,
 			);
 			path = TodoListWork;
@@ -84,7 +80,6 @@
 			children = (
 				9D2DC7BC2DA7C529007FD4CB /* Assets.xcassets */,
 				9D2DC8202DA80830007FD4CB /* CoreDataModel.xcdatamodeld */,
-				9D2DC8272DA808F0007FD4CB /* CoreDataManager.swift */,
 				9D2DC7BF2DA7C529007FD4CB /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
@@ -93,7 +88,9 @@
 		9D2DC7D02DA7CF10007FD4CB /* CoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
-				9D2DC7D12DA7CF30007FD4CB /* CoreDataManager.swift */,
+				9D2DC8232DA8087B007FD4CB /* TodoList+CoreDataClass.swift */,
+				9D2DC8272DA808F0007FD4CB /* CoreDataManager.swift */,
+				9D2DC8242DA8087B007FD4CB /* TodoList+CoreDataProperties.swift */,
 			);
 			path = CoreDataManager;
 			sourceTree = "<group>";
@@ -186,7 +183,6 @@
 				9D2DC8262DA8087B007FD4CB /* TodoList+CoreDataProperties.swift in Sources */,
 				9D2DC7CC2DA7C529007FD4CB /* SceneDelegate.swift in Sources */,
 				9D2DC8282DA808F0007FD4CB /* CoreDataManager.swift in Sources */,
-				9D2DC7D22DA7CF30007FD4CB /* CoreDataManager.swift in Sources */,
 				9D2DC7CE2DA7C529007FD4CB /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
