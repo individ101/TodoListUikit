@@ -13,3 +13,11 @@ import CoreData
 public class TodoList: NSManagedObject {
 
 }
+
+extension TodoList {
+    var formattedDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yy"
+        return formatter.string(from: self.creationDate ?? Date())
+    }
+}

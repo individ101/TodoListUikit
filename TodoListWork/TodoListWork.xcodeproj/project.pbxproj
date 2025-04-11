@@ -17,6 +17,9 @@
 		9D2DC8252DA8087B007FD4CB /* TodoList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC8232DA8087B007FD4CB /* TodoList+CoreDataClass.swift */; };
 		9D2DC8262DA8087B007FD4CB /* TodoList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC8242DA8087B007FD4CB /* TodoList+CoreDataProperties.swift */; };
 		9D2DC8282DA808F0007FD4CB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC8272DA808F0007FD4CB /* CoreDataManager.swift */; };
+		9D2DC82C2DA81189007FD4CB /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC82B2DA81189007FD4CB /* CustomSearchBar.swift */; };
+		9D2DC82F2DA85C47007FD4CB /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC82E2DA85C47007FD4CB /* AddViewController.swift */; };
+		9D2DC8312DA97642007FD4CB /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC8302DA97642007FD4CB /* TodoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		9D2DC8232DA8087B007FD4CB /* TodoList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoList+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9D2DC8242DA8087B007FD4CB /* TodoList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9D2DC8272DA808F0007FD4CB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		9D2DC82B2DA81189007FD4CB /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		9D2DC82E2DA85C47007FD4CB /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		9D2DC8302DA97642007FD4CB /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +70,10 @@
 		9D2DC7C52DA7C529007FD4CB /* TodoListWork */ = {
 			isa = PBXGroup;
 			children = (
+				9D2DC82D2DA85C17007FD4CB /* Screens */,
+				9D2DC82A2DA81152007FD4CB /* View */,
 				9D2DC7BB2DA7C529007FD4CB /* AppDelegate.swift */,
 				9D2DC7C22DA7C529007FD4CB /* SceneDelegate.swift */,
-				9D2DC7C42DA7C529007FD4CB /* ViewController.swift */,
 				9D2DC7BD2DA7C529007FD4CB /* Info.plist */,
 				9D2DC7D32DA7D574007FD4CB /* NetworkManager */,
 				9D2DC7D02DA7CF10007FD4CB /* CoreDataManager */,
@@ -101,6 +108,24 @@
 				9D2DC7D42DA7D83D007FD4CB /* NetworkManager.swift */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		9D2DC82A2DA81152007FD4CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9D2DC82B2DA81189007FD4CB /* CustomSearchBar.swift */,
+				9D2DC8302DA97642007FD4CB /* TodoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D2DC82D2DA85C17007FD4CB /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				9D2DC7C42DA7C529007FD4CB /* ViewController.swift */,
+				9D2DC82E2DA85C47007FD4CB /* AddViewController.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,11 +201,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D2DC82F2DA85C47007FD4CB /* AddViewController.swift in Sources */,
 				9D2DC7D52DA7D83D007FD4CB /* NetworkManager.swift in Sources */,
 				9D2DC7CB2DA7C529007FD4CB /* AppDelegate.swift in Sources */,
 				9D2DC8222DA80830007FD4CB /* CoreDataModel.xcdatamodeld in Sources */,
 				9D2DC8252DA8087B007FD4CB /* TodoList+CoreDataClass.swift in Sources */,
 				9D2DC8262DA8087B007FD4CB /* TodoList+CoreDataProperties.swift in Sources */,
+				9D2DC82C2DA81189007FD4CB /* CustomSearchBar.swift in Sources */,
+				9D2DC8312DA97642007FD4CB /* TodoCell.swift in Sources */,
 				9D2DC7CC2DA7C529007FD4CB /* SceneDelegate.swift in Sources */,
 				9D2DC8282DA808F0007FD4CB /* CoreDataManager.swift in Sources */,
 				9D2DC7CE2DA7C529007FD4CB /* ViewController.swift in Sources */,

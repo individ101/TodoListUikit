@@ -26,7 +26,7 @@ class CoreDataManager {
         })
         return container
     }()
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

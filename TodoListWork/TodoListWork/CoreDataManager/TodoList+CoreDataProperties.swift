@@ -25,5 +25,16 @@ extension TodoList {
 }
 
 extension TodoList : Identifiable {
+    func updateTodo(title: String, text: String) {
+        self.title = title
+        self.text = text
+        self.creationDate = Date()
+        
+        try? managedObjectContext?.save()
+    }
     
+    func deleteTodo() {
+        managedObjectContext?.delete(self)
+        try? managedObjectContext?.save()
+    }
 }
