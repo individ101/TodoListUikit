@@ -11,6 +11,8 @@ import CoreData
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private let manager = CoreDataManager.shared
     private let searchBar = CustomSearchBar()
+    private var filteredTodos: [TodoList] = []
+    private var isSearching = false
     
     lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
@@ -88,13 +90,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 extension ViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        manager.todos.count
+       isSearching ? filteredTodos.count : manager.todos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoCell.identifier, for: indexPath) as? TodoCell else { return UITableViewCell() }
         
-        let task = manager.todos[indexPath.row]
+        let task = isSearching ? filteredTodos[indexPath.row] : manager.todos[indexPath.row]
         cell.configure(with: task)
         cell.checkmarkTapped = { [weak self] in
                 guard let self else { return }
@@ -123,12 +125,31 @@ extension ViewController {
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("Searching for: \(searchText)")
-        // фильтрация данных здесь
+        let searchText = searchText.trimmingCharacters(in: .whitespaces).lowercased()
+        
+        if searchText.isEmpty {
+            isSearching = false
+            filteredTodos = []
+        } else {
+            isSearching = true
+            filteredTodos = manager.todos.filter { todo in
+                return todo.title?.lowercased().contains(searchText) ?? false ||
+                todo.text?.lowercased().contains(searchText) ?? false
+            }
+        }
+        tableView.reloadData()
     }
     
-    // Закрытие клавиатуры при нажатии search
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.text = ""
+            isSearching = false
+            filteredTodos = []
+            tableView.reloadData()
+            searchBar.resignFirstResponder()
+        }
+    
 }

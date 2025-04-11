@@ -70,10 +70,10 @@
 		9D2DC7C52DA7C529007FD4CB /* TodoListWork */ = {
 			isa = PBXGroup;
 			children = (
-				9D2DC82D2DA85C17007FD4CB /* Screens */,
-				9D2DC82A2DA81152007FD4CB /* View */,
 				9D2DC7BB2DA7C529007FD4CB /* AppDelegate.swift */,
 				9D2DC7C22DA7C529007FD4CB /* SceneDelegate.swift */,
+				9D2DC82D2DA85C17007FD4CB /* Screens */,
+				9D2DC82A2DA81152007FD4CB /* View */,
 				9D2DC7BD2DA7C529007FD4CB /* Info.plist */,
 				9D2DC7D32DA7D574007FD4CB /* NetworkManager */,
 				9D2DC7D02DA7CF10007FD4CB /* CoreDataManager */,

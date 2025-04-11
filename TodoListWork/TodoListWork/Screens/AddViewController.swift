@@ -67,7 +67,6 @@ class AddViewController: UIViewController {
         } else {
             title = "Add Todo"
         }
-
     }
 
     private func setupConstraints() {
