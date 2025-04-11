@@ -107,29 +107,32 @@ final class TodoCell: UITableViewCell {
     }
     
     func configure(with todo: TodoList) {
-            self.todo = todo
-            titleLabel.text = todo.title
-            descriptionLabel.text = todo.text
-            dateLabel.text = todo.formattedDate
-            
+        self.todo = todo
+        
+        dateLabel.text = todo.formattedDate
+        
         if todo.isCompleted {
-            checkmarkImageView.image = UIImage(systemName: "checkmark.circle")
-            checkmarkImageView.tintColor = .systemYellow
-            descriptionLabel.textColor = .systemGray
-            titleLabel.textColor = .systemGray
+            // Используем attributedText для заголовка с зачеркиванием
             titleLabel.attributedText = NSAttributedString(
                 string: todo.title ?? "",
                 attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue]
             )
+            descriptionLabel.text = todo.text
+            
+            checkmarkImageView.image = UIImage(systemName: "checkmark.circle")
+            checkmarkImageView.tintColor = .systemYellow
+            descriptionLabel.textColor = .systemGray
+            titleLabel.textColor = .systemGray
         } else {
+            // Просто устанавливаем обычный текст без атрибутов
+            titleLabel.attributedText = nil
+            titleLabel.text = todo.title
+            descriptionLabel.text = todo.text
+            
             checkmarkImageView.image = UIImage(systemName: "circle")
             checkmarkImageView.tintColor = .systemGray
             descriptionLabel.textColor = .white
             titleLabel.textColor = .white
-            titleLabel.attributedText = NSAttributedString(
-                string: todo.title ?? "", // без зачёркивания
-                attributes: [:]
-            )
         }
-        }
+    }
 }

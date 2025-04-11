@@ -96,6 +96,12 @@ extension ViewController {
         
         let task = manager.todos[indexPath.row]
         cell.configure(with: task)
+        cell.checkmarkTapped = { [weak self] in
+                guard let self else { return }
+                task.isCompleted.toggle()
+                self.manager.saveContext()
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
         return cell
     }
     
