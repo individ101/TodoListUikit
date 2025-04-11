@@ -59,6 +59,14 @@ class AddViewController: UIViewController {
         title = "Add Todo"
         
         setupConstraints()
+        
+        if todo != nil {
+            title = "Edit Todo"
+            titleField.text = todo?.title
+            textView.text = todo?.text
+        } else {
+            title = "Add Todo"
+        }
 
     }
 
@@ -76,6 +84,6 @@ class AddViewController: UIViewController {
             btn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             btn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         ])
-      
     }
+    
 }

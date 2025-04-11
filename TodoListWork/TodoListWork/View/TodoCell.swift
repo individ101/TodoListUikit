@@ -55,8 +55,6 @@ final class TodoCell: UITableViewCell {
         return stack
     }()
     
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -73,13 +71,10 @@ final class TodoCell: UITableViewCell {
     }
     
     private func setupViews() {
-        // Добавляем элементы на ячейку
         contentView.addSubview(checkmarkImageView)
         contentView.addSubview(stackLabels)
         
-        // Настройка Auto Layout
         NSLayoutConstraint.activate([
-            // Checkmark
             checkmarkImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             checkmarkImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             checkmarkImageView.widthAnchor.constraint(equalToConstant: 24),
@@ -112,7 +107,6 @@ final class TodoCell: UITableViewCell {
         dateLabel.text = todo.formattedDate
         
         if todo.isCompleted {
-            // Используем attributedText для заголовка с зачеркиванием
             titleLabel.attributedText = NSAttributedString(
                 string: todo.title ?? "",
                 attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue]
@@ -124,7 +118,6 @@ final class TodoCell: UITableViewCell {
             descriptionLabel.textColor = .systemGray
             titleLabel.textColor = .systemGray
         } else {
-            // Просто устанавливаем обычный текст без атрибутов
             titleLabel.attributedText = nil
             titleLabel.text = todo.title
             descriptionLabel.text = todo.text

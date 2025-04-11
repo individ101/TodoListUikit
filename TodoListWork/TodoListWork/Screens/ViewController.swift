@@ -106,11 +106,9 @@ extension ViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let todo = manager.todos[indexPath.row]
-        
-        
-        tableView.reloadRows(at: [indexPath], with: .automatic)
-       
+        let vc = AddViewController()
+        vc.todo = manager.todos[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
