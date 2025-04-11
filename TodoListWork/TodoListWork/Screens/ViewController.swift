@@ -13,11 +13,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private let searchBar = CustomSearchBar()
     
     lazy var tableView: UITableView = {
-        let table = UITableView(frame: .zero, style: .insetGrouped)
+        let table = UITableView(frame: .zero, style: .plain)
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.separatorStyle = .singleLine
+        table.separatorColor = .systemGray
+        table.rowHeight = UITableView.automaticDimension
         table.dataSource = self
         table.delegate = self
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(TodoCell.self, forCellReuseIdentifier: TodoCell.identifier)
         
         return table
     }()
@@ -32,7 +35,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         title = "Задачи"
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(tableView)
@@ -73,6 +75,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         ])
         
         headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 60)
+        headerView.backgroundColor = .black
         
         tableView.tableHeaderView = headerView
     }
@@ -89,13 +92,29 @@ extension ViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = manager.todos[indexPath.row].title
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoCell.identifier, for: indexPath) as? TodoCell else { return UITableViewCell() }
         
+        let task = manager.todos[indexPath.row]
+        cell.configure(with: task)
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let todo = manager.todos[indexPath.row]
+        
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+       
+    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let todo = manager.todos[indexPath.row]
+            todo.deleteTodo()
+            manager.todos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 }
 
 extension ViewController: UISearchBarDelegate {
